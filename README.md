@@ -1,5 +1,9 @@
 # Fable.BizCharts
 
+BizCharts bindings for Fable React
+
+## Usage 
+
 ```fsharp
 let data = [|
     {|
