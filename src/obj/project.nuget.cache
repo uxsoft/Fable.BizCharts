@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "/LNRvRNzFSVBl1S1yIsZSaC7cpw+3plBh5UDtdamxMPQdJ/xu66rkmV0604RNu7JaOYpJV2uNV4faJC8qEHfQg==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\uxsoft\\source\\repos\\Fable.BizCharts\\src\\Fable.BizCharts.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\uxsoft\\.nuget\\packages\\fable.browser.blob\\1.0.0\\fable.browser.blob.1.0.0.nupkg.sha512",
+    "C:\\Users\\uxsoft\\.nuget\\packages\\fable.browser.dom\\1.0.0\\fable.browser.dom.1.0.0.nupkg.sha512",
+    "C:\\Users\\uxsoft\\.nuget\\packages\\fable.browser.event\\1.0.0\\fable.browser.event.1.0.0.nupkg.sha512",
+    "C:\\Users\\uxsoft\\.nuget\\packages\\fable.browser.webstorage\\1.0.0\\fable.browser.webstorage.1.0.0.nupkg.sha512",
+    "C:\\Users\\uxsoft\\.nuget\\packages\\fable.core\\3.1.5\\fable.core.3.1.5.nupkg.sha512",
+    "C:\\Users\\uxsoft\\.nuget\\packages\\fable.react\\6.2.0\\fable.react.6.2.0.nupkg.sha512",
+    "C:\\Users\\uxsoft\\.nuget\\packages\\fsharp.core\\4.7.2\\fsharp.core.4.7.2.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\uxsoft\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
