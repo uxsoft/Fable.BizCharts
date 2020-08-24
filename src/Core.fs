@@ -55,8 +55,8 @@ type InteractionType =
     | [<CompiledName("brush-y")>] BrushY
     | [<CompiledName("brush-visible")>] BrushVisible
 
-type BizChart(data: obj array) as this =
-    inherit BizElement<BizChart>(ofImport "Chart" "bizcharts")
+type BizChart<'TData>(data: 'TData array) as this =
+    inherit BizElement<BizChart<'TData>>(ofImport "Chart" "bizcharts")
     do this.attribute "data" data |> ignore
     member x.autoFit (v: bool) = x.attribute "autoFit" v
     member x.width (v: int) = x.attribute "width" v
@@ -124,8 +124,8 @@ type BizLegend() =
     member x.layout (v: LegendLayout) = x.attribute "layout" v
     member x.title (v: bool) = x.attribute "title" v
     member x.background (v: obj) = x.attribute "background" v
-    member x.filter (v: obj) = x.attribute "filter" v
-    member x.onChange (v: string) = x.attribute "onChange" v
+    member x.filter (v: Func<'TData, DateTime, int, bool>) = x.attribute "filter" v
+    member x.onChange (v: Func<Browser.Types.Event, obj, unit>) = x.attribute "onChange" v
     member x.slidable (v: bool) = x.attribute "slidable" v
     member x.min (v: float) = x.attribute "min" v
     member x.max (v: float) = x.attribute "max" v
