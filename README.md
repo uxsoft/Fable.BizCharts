@@ -2,7 +2,17 @@
 
 BizCharts bindings for Fable React
 
+<img src="https://buildstats.info/nuget/Fable.BizCharts" alt="badge"/>
+
 ## Usage 
+
+### Dependencies:
+
+`yarn add bizcharts`
+
+`dotnet package add Fable.BizCharts`
+
+### Fable
 
 ```fsharp
 let data = [|
