@@ -19,6 +19,11 @@ jobs:
       
     - name: Install dependencies
       run: dotnet restore
+    
+    - name: Set version in project file
+      uses: roryprimrose/set-vs-sdk-project-version@v1.0.3
+      with:
+        version: 1.${{ github.run_number }}.0
 
     - name: Publish NuGet
       uses: rohith/publish-nuget@v2.5.5
