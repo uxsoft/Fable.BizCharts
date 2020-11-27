@@ -19,7 +19,7 @@ type LineShape =
     | Line | Smooth | Dot | Dash | Hv | Vh | Hvh | Vhv
 
 type BizLine() =
-    inherit BizGraphic<BizLine>(ofImport "default" "bizcharts/lib/components/Line")
+    inherit BizGraphic<BizLine>(ofImport "default" "bizcharts/lib/geometry/Line")
     member x.shape (v: LineShape) = x.attribute "shape" v
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -27,7 +27,7 @@ type IntervalShape =
     | Rect | HollowRect | Line | Tick | Stroke | Funnel | Pyramid
 
 type BizInterval() =
-    inherit BizGraphic<BizInterval>(ofImport "default" "bizcharts/lib/components/Interval")
+    inherit BizGraphic<BizInterval>(ofImport "default" "bizcharts/lib/geometry/Interval")
     member x.shape (v: IntervalShape) = x.attribute "shape" v
 
 [<StringEnum; RequireQualifiedAccess>]
