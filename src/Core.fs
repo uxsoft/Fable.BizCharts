@@ -1,36 +1,8 @@
 namespace Fable.BizCharts
 
-// yarn add bizcharts
-
 open System
 open Fable.Core
 open Fable.React
-open Fable.Core.JsInterop
-open Fable.React.Props
-
-type BizObject<'T when 'T :> BizObject<'T>>() =
-    let mutable props = []
-
-    member x.JSON = createObj props
-    member internal x.attribute name value =
-        props <- props @ [name ==> value]
-        x :?> 'T
-
-type BizElement<'T when 'T :> BizElement<'T>> (partialImport: obj -> ReactElement seq -> ReactElement) =
-    inherit BizObject<'T>()
-
-    member x.Item
-        with get(children: ReactElement list) = partialImport x.JSON children
-
-    member x.children (children: ReactElement list) =
-        partialImport x.JSON children
-
-    member x.build () =
-        partialImport x.JSON []
-
-    // Common Attributes
-    member x.set (v: string * obj) = match v with (name, value) -> x.attribute name value
-    member x.key (v: string) = x.attribute "key" v
 
 [<StringEnum; RequireQualifiedAccess>]
 type InteractionType =
@@ -56,7 +28,7 @@ type InteractionType =
     | [<CompiledName("brush-visible")>] BrushVisible
 
 type BizChart<'TData>(data: 'TData array) as this =
-    inherit BizElement<BizChart<'TData>>(ofImport "Chart" "bizcharts")
+    inherit BizElement<BizChart<'TData>>(ofImport "Chart" "bizcharts/lib/components/Chart")
     do this.attribute "data" data |> ignore
     member x.autoFit (v: bool) = x.attribute "autoFit" v
     member x.width (v: int) = x.attribute "width" v
@@ -74,7 +46,7 @@ type BizChart<'TData>(data: 'TData array) as this =
     member x.scale (v: obj) = x.attribute "scale" v
 
 type BizView() =
-    inherit BizElement<BizView>(ofImport "View" "bizcharts")
+    inherit BizElement<BizView>(ofImport "View" "bizcharts/lib/components/View")
     member x.region (v: obj) = x.attribute "region" v
     member x.data (v: obj array) = x.attribute "data" v
     member x.scale (v: obj) = x.attribute "scale" v
@@ -82,7 +54,7 @@ type BizView() =
     member x.animate (v: bool) = x.attribute "animate" v
 
 type BizAxis() =
-    inherit BizElement<BizAxis>(ofImport "Axis" "bizcharts")
+    inherit BizElement<BizAxis>(ofImport "Axis" "bizcharts/lib/components/Axis")
     member x.name (v: string) = x.attribute "name" v
     member x.visible (v: bool) = x.attribute "visible" v
     member x.position (v: string) = x.attribute "position" v
@@ -115,7 +87,7 @@ type LegendLayout =
     | Vertical
 
 type BizLegend() =
-    inherit BizElement<BizLegend>(ofImport "Legend" "bizcharts")
+    inherit BizElement<BizLegend>(ofImport "Legend" "bizcharts/lib/components/Legend")
     member x.name (v: string) = x.attribute "name" v
     member x.visible (v: bool) = x.attribute "visible" v
     member x.position (v: LegendPosition) = x.attribute "position" v
@@ -151,7 +123,7 @@ type CoordinateType =
     | Rect | Cartesian | Polar | Theta | Helix
 
 type BizCoordinate() =
-    inherit BizElement<BizCoordinate>(ofImport "Coordinate" "bizcharts")
+    inherit BizElement<BizCoordinate>(ofImport "Coordinate" "bizcharts/lib/components/Coordinate")
     member x.radius (v: float) = x.attribute "radius" v
     member x.innerRadius (v: float) = x.attribute "innerRadius" v
     member x.startAngle (v: float) = x.attribute "startAngle" v
@@ -171,7 +143,7 @@ type TooltipPosition =
     | Bottom
 
 type BizTooltip() =
-    inherit BizElement<BizCoordinate>(ofImport "Tooltip" "bizcharts")
+    inherit BizElement<BizCoordinate>(ofImport "Tooltip" "bizcharts/lib/components/Tooltip")
     member x.showTitle (v: bool) = x.attribute "showTitle" v
     member x.title (v: string) = x.attribute "title" v
     member x.showMarkers (v: bool) = x.attribute "showMarkers" v
@@ -197,7 +169,7 @@ type BizTooltip() =
 //}
 
 type BizSlider() =
-    inherit BizElement<BizSlider>(ofImport "Slider" "bizcharts")
+    inherit BizElement<BizSlider>(ofImport "Slider" "bizcharts/lib/components/Slider")
     member x.height (v: int) = x.attribute "height" v
     member x.trendCfg (v: obj) = x.attribute "trendCfg" v // TODO TrendCfg
     member x.backgroundStyle (v: obj) = x.attribute "backgroundStyle" v
@@ -211,7 +183,7 @@ type BizSlider() =
     member x.formatter (v: Func<obj, DateTime, float, obj>) = x.attribute "formatter" v
 
 type BizInteraction() =
-    inherit BizElement<BizInteraction>(ofImport "Interaction" "bizcharts")
+    inherit BizElement<BizInteraction>(ofImport "Interaction" "bizcharts/lib/components/Interaction")
     member x.interactionType (v: InteractionType) = x.attribute "type" v
     member x.config (v: obj) = x.attribute "config" v
 
@@ -226,7 +198,7 @@ type FacetType =
 //  }
 
 type BizFacet() =
-    inherit BizElement<BizFacet>(ofImport "Facet" "bizcharts")
+    inherit BizElement<BizFacet>(ofImport "Facet" "bizcharts/lib/components/Facet")
     member x.facetType (v: FacetType) = x.attribute "type" v
     member x.fields (v: string array) = x.attribute "fields" v
     member x.eachView (v: obj -> unit) = x.attribute "eachView" v // TODO better

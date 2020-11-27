@@ -9,6 +9,7 @@
     <RepositoryUrl>https://github.com/uxsoft/Fable.BizCharts</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common.fs" />
     <Compile Include="Core.fs" />
     <Compile Include="Graphics.fs" />
     <Compile Include="G2.fs" />

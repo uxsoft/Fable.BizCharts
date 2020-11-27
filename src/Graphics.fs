@@ -2,7 +2,6 @@ namespace Fable.BizCharts
 
 open Fable.Core
 open Fable.React
-open Fable.Core.JsInterop
 
 type BizGraphic<'T when 'T :> BizElement<'T>>(partialImport) =
     inherit BizElement<'T>(partialImport)
@@ -20,7 +19,7 @@ type LineShape =
     | Line | Smooth | Dot | Dash | Hv | Vh | Hvh | Vhv
 
 type BizLine() =
-    inherit BizGraphic<BizLine>(ofImport "Interval" "bizcharts")
+    inherit BizGraphic<BizLine>(ofImport "Interval" "bizcharts/lib/components/Line")
     member x.shape (v: LineShape) = x.attribute "shape" v
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -28,7 +27,7 @@ type IntervalShape =
     | Rect | HollowRect | Line | Tick | Stroke | Funnel | Pyramid
 
 type BizInterval() =
-    inherit BizGraphic<BizInterval>(ofImport "Interval" "bizcharts")
+    inherit BizGraphic<BizInterval>(ofImport "Interval" "bizcharts/lib/components/Interval")
     member x.shape (v: IntervalShape) = x.attribute "shape" v
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -54,7 +53,7 @@ type PointShape =
     | [<CompiledName("hollow-triangle-down")>] HollowTriangleDown
 
 type BizPoint() =
-    inherit BizGraphic<BizPoint>(ofImport "Point" "bizcharts")
+    inherit BizGraphic<BizPoint>(ofImport "Point" "bizcharts/lib/components/Point")
     member x.shape (v: PointShape) = x.attribute "shape" v
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -68,11 +67,11 @@ type AreaShape =
     | DotSmoothLine'
 
 type BizArea() =
-    inherit BizGraphic<BizArea>(ofImport "Area" "bizcharts")
+    inherit BizGraphic<BizArea>(ofImport "Area" "bizcharts/lib/components/Area")
     member x.shape (v: AreaShape) = x.attribute "shape" v
     
 type BizPolygon() =
-    inherit BizGraphic<BizPolygon>(ofImport "Polygon" "bizcharts")
+    inherit BizGraphic<BizPolygon>(ofImport "Polygon" "bizcharts/lib/components/Polygon")
 
 [<StringEnum; RequireQualifiedAccess>]
 type SchemaShape =
@@ -80,7 +79,7 @@ type SchemaShape =
     | Candle
     
 type BizSchema() =
-    inherit BizGraphic<BizSchema>(ofImport "Schema" "bizcharts")
+    inherit BizGraphic<BizSchema>(ofImport "Schema" "bizcharts/lib/components/Schema")
     member x.shape (v: SchemaShape) = x.attribute "shape" v
     
 [<StringEnum; RequireQualifiedAccess>]
@@ -92,11 +91,11 @@ type PathShape =
     | Hv | Vh | Hvh | Vhv
     
 type BizPath() =
-    inherit BizGraphic<BizPath>(ofImport "Path" "bizcharts")
+    inherit BizGraphic<BizPath>(ofImport "Path" "bizcharts/lib/components/Path")
     member x.shape (v: PathShape) = x.attribute "shape" v
     
 type BizHeatmap() =
-    inherit BizGraphic<BizHeatmap>(ofImport "Heatmap" "bizcharts")
+    inherit BizGraphic<BizHeatmap>(ofImport "Heatmap" "bizcharts/lib/components/Heatmap")
 
 [<StringEnum; RequireQualifiedAccess>]
 type EdgeShape =
@@ -106,5 +105,5 @@ type EdgeShape =
     | Arc
     
 type BizEdge() =
-    inherit BizGraphic<BizEdge>(ofImport "Edge" "bizcharts")
+    inherit BizGraphic<BizEdge>(ofImport "Edge" "bizcharts/lib/components/Edge")
     member x.shape (v: EdgeShape) = x.attribute "shape" v
