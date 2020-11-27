@@ -1,7 +1,8 @@
-namespace Fable.BizCharts
+namespace Fable.BizCharts.G2
 
 open Browser.Types
 open Fable.React
+open Fable.BizCharts
 
 type BizCanvas() =
     inherit BizElement<BizCanvas>(ofImport "Canvas" "bizcharts/lib/g-components/Canvas")
