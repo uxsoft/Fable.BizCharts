@@ -5,7 +5,7 @@ open Fable.React
 open Fable.BizCharts
 
 type BizCanvas() =
-    inherit BizElement<BizCanvas>(ofImport "Canvas" "bizcharts/lib/g-components/Canvas")
+    inherit BizElement<BizCanvas>(ofImport "default" "bizcharts/lib/g-components/Canvas")
     member x.renderer (v: string) = x.attribute "renderer" v
     member x.width (v: int) = x.attribute "width" v
     member x.height (v: int) = x.attribute "height" v
@@ -13,7 +13,7 @@ type BizCanvas() =
     member x.cursor (v: string) = x.attribute "cursor" v
     
 type BizGroup() =
-    inherit BizElement<BizGroup>(ofImport "Group" "bizcharts/lib/g-components/Group")
+    inherit BizElement<BizGroup>(ofImport "default" "bizcharts/lib/g-components/Group")
     member x.translate (v: float array) = x.attribute "translate" v
     
 type CircleAttrs =
@@ -24,7 +24,7 @@ type CircleAttrs =
     }
     
 type BizCircle() =
-    inherit BizElement<BizCircle>(ofImport "Circle" "bizcharts/lib/g-components/Circle")
+    inherit BizElement<BizCircle>(ofImport "default" "bizcharts/lib/g-components/Circle")
     member x.attrs (v: CircleAttrs) = x.attribute "attrs" v
 
 type EllipseAttrs =
@@ -36,7 +36,7 @@ type EllipseAttrs =
     }
   
 type BizEllipse() =
-    inherit BizElement<BizEllipse>(ofImport "Ellipse" "bizcharts/lib/g-components/Ellipse")
+    inherit BizElement<BizEllipse>(ofImport "default" "bizcharts/lib/g-components/Ellipse")
     member x.attrs (v: EllipseAttrs) = x.attribute "attrs" v
     
 type ImageAttrs =
@@ -48,7 +48,7 @@ type ImageAttrs =
     }
   
 type BizImage() =
-    inherit BizElement<BizImage>(ofImport "Image" "bizcharts/lib/g-components/Image")
+    inherit BizElement<BizImage>(ofImport "default" "bizcharts/lib/g-components/Image")
     member x.attrs (v: ImageAttrs) = x.attribute "attrs" v
     
 type LineAttrs =
@@ -60,7 +60,7 @@ type LineAttrs =
     }
   
 type BizLine() =
-    inherit BizElement<BizLine>(ofImport "Line" "bizcharts/lib/g-components/Line")
+    inherit BizElement<BizLine>(ofImport "default" "bizcharts/lib/g-components/Line")
     member x.attrs (v: LineAttrs) = x.attribute "attrs" v
     
 type MarkerAttrs =
@@ -72,7 +72,7 @@ type MarkerAttrs =
     }
   
 type BizMarker() =
-    inherit BizElement<BizMarker>(ofImport "Marker" "bizcharts/lib/g-components/Marker")
+    inherit BizElement<BizMarker>(ofImport "default" "bizcharts/lib/g-components/Marker")
     member x.attrs (v: MarkerAttrs) = x.attribute "attrs" v
     
 type PathAttrs =
@@ -81,7 +81,7 @@ type PathAttrs =
     }
   
 type BizPath() =
-    inherit BizElement<BizPath>(ofImport "Path" "bizcharts/lib/g-components/Path")
+    inherit BizElement<BizPath>(ofImport "default" "bizcharts/lib/g-components/Path")
     member x.attrs (v: PathAttrs) = x.attribute "attrs" v
     
 type PolygonAttrs =
@@ -90,7 +90,7 @@ type PolygonAttrs =
     }
   
 type BizPolygon() =
-    inherit BizElement<BizPolygon>(ofImport "Polygon" "bizcharts/lib/g-components/Polygon")
+    inherit BizElement<BizPolygon>(ofImport "default" "bizcharts/lib/g-components/Polygon")
     member x.attrs (v: PolygonAttrs) = x.attribute "attrs" v
     
 type PolylineAttrs =
@@ -99,7 +99,7 @@ type PolylineAttrs =
     }
   
 type BizPolyline() =
-    inherit BizElement<BizPolyline>(ofImport "Polyline" "bizcharts/lib/g-components/Polyline")
+    inherit BizElement<BizPolyline>(ofImport "default" "bizcharts/lib/g-components/Polyline")
     member x.attrs (v: PolylineAttrs) = x.attribute "attrs" v
     
 type RectAttrs =
@@ -112,7 +112,7 @@ type RectAttrs =
     }
   
 type BizRect() =
-    inherit BizElement<BizRect>(ofImport "Rect" "bizcharts/lib/g-components/Rect")
+    inherit BizElement<BizRect>(ofImport "default" "bizcharts/lib/g-components/Rect")
     member x.attrs (v: RectAttrs) = x.attribute "attrs" v
     
 type TextAttrs =
@@ -123,5 +123,5 @@ type TextAttrs =
     }
   
 type BizText() =
-    inherit BizElement<BizText>(ofImport "Text" "bizcharts/lib/g-components/Text")
+    inherit BizElement<BizText>(ofImport "default" "bizcharts/lib/g-components/Text")
     member x.attrs (v: TextAttrs) = x.attribute "attrs" v
