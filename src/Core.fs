@@ -30,18 +30,18 @@ type InteractionType =
 type BizChart<'TData>(data: 'TData array) as this =
     inherit BizElement<BizChart<'TData>>(ofImport "default" "bizcharts/lib/components/Chart")
     do this.attribute "data" data |> ignore
-    member x.autoFit (v: bool) = x.attribute "autoFit" v
+    member x.autoFit (?v: bool) = x.attribute "autoFit" (Option.defaultValue true v)
     member x.width (v: int) = x.attribute "width" v
     member x.height (v: int) = x.attribute "height" v
     member x.padding (v: int array) = x.attribute "padding" v
     member x.appendPadding (v: int) = x.attribute "appendPadding" v
     member x.pixelRatio (v: int) = x.attribute "pixelRatio" v
-    member x.isPure (v: bool) = x.attribute "pure" v
+    member x.isPure (?v: bool) = x.attribute "pure" (Option.defaultValue true v)
     member x.errorContent (v: string) = x.attribute "errorContent" v
-    member x.placeholder (v: bool) = x.attribute "placeholder" v
+    member x.placeholder (?v: bool) = x.attribute "placeholder" (Option.defaultValue true v)
     member x.defaultInteractions (v: InteractionType array) = x.attribute "defaultInteractions" v
     member x.interactions (v: InteractionType array) = x.attribute "interactions" v
-    member x.animate (v: bool) = x.attribute "animate" v
+    member x.animate (?v: bool) = x.attribute "animate" (Option.defaultValue true v)
     member x.filter (v: obj array) = x.attribute "filter" v
     member x.scale (v: obj) = x.attribute "scale" v
 
@@ -51,19 +51,19 @@ type BizView() =
     member x.data (v: obj array) = x.attribute "data" v
     member x.scale (v: obj) = x.attribute "scale" v
     member x.padding (v: int array) = x.attribute "padding" v
-    member x.animate (v: bool) = x.attribute "animate" v
+    member x.animate (?v: bool) = x.attribute "animate" (Option.defaultValue true v)
 
 type BizAxis() =
     inherit BizElement<BizAxis>(ofImport "default" "bizcharts/lib/components/Axis")
     member x.name (v: string) = x.attribute "name" v
-    member x.visible (v: bool) = x.attribute "visible" v
+    member x.visible (?v: bool) = x.attribute "visible" (Option.defaultValue true v)
     member x.position (v: string) = x.attribute "position" v
-    member x.title (v: bool) = x.attribute "title" v
+    member x.title (?v: bool) = x.attribute "title" (Option.defaultValue true v)
     member x.line (v: obj) = x.attribute "line" v
     member x.tickLine (v: obj) = x.attribute "tickLine" v
     member x.label (v: obj) = x.attribute "label" v
     member x.subTickLine (v: obj) = x.attribute "subTickLine" v
-    member x.animate (v: bool) = x.attribute "animate" v
+    member x.animate (?v: bool) = x.attribute "animate" (Option.defaultValue true v)
     member x.verticalFactor (v: int) = x.attribute "verticalFactor" v
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -89,23 +89,23 @@ type LegendLayout =
 type BizLegend() =
     inherit BizElement<BizLegend>(ofImport "default" "bizcharts/lib/components/Legend")
     member x.name (v: string) = x.attribute "name" v
-    member x.visible (v: bool) = x.attribute "visible" v
+    member x.visible (?v: bool) = x.attribute "visible" (Option.defaultValue true v)
     member x.position (v: LegendPosition) = x.attribute "position" v
     member x.offsetX (v: int) = x.attribute "offsetX" v
     member x.offsetY (v: int) = x.attribute "offsetY" v
     member x.layout (v: LegendLayout) = x.attribute "layout" v
-    member x.title (v: bool) = x.attribute "title" v
+    member x.title (?v: bool) = x.attribute "title" (Option.defaultValue true v)
     member x.background (v: obj) = x.attribute "background" v
     member x.filter (v: Func<'TData, DateTime, int, bool>) = x.attribute "filter" v
     member x.onChange (v: Func<Browser.Types.Event, obj, unit>) = x.attribute "onChange" v
-    member x.slidable (v: bool) = x.attribute "slidable" v
+    member x.slidable (?v: bool) = x.attribute "slidable" (Option.defaultValue true v)
     member x.min (v: float) = x.attribute "min" v
     member x.max (v: float) = x.attribute "max" v
     member x.value (v: float) = x.attribute "value" v
     member x.track (v: obj) = x.attribute "track" v
     member x.rail (v: obj) = x.attribute "rail" v
     member x.handler (v: obj) = x.attribute "handler" v
-    member x.custom (v: bool) = x.attribute "custom" v
+    member x.custom (?v: bool) = x.attribute "custom" (Option.defaultValue true v)
     member x.items (v: obj array) = x.attribute "custom" v
     member x.itemSpacing (v: int) = x.attribute "itemSpacing" v
     member x.itemWidth (v: int) = x.attribute "itemWidth" v
@@ -115,8 +115,8 @@ type BizLegend() =
     member x.maxWidth (v: int) = x.attribute "maxWidth" v
     member x.maxHeight (v: int) = x.attribute "maxHeight" v
     member x.marker (v: obj) = x.attribute "marker" v
-    member x.flipPage (v: bool) = x.attribute "flipPage" v
-    member x.reversed (v: bool) = x.attribute "reversed" v
+    member x.flipPage (?v: bool) = x.attribute "flipPage" (Option.defaultValue true v)
+    member x.reversed (?v: bool) = x.attribute "reversed" (Option.defaultValue true v)
 
 [<StringEnum; RequireQualifiedAccess>]
 type CoordinateType =
@@ -132,7 +132,7 @@ type BizCoordinate() =
     member x.rotate (v: float) = x.attribute "rotate" v
     member x.scale (v: float array) = x.attribute "scale" v
     member x.reflect (v: string) = x.attribute "reflect" v
-    member x.transpose (v: bool) = x.attribute "transpose" v
+    member x.transpose (?v: bool) = x.attribute "transpose" (Option.defaultValue true v)
     member x.actions (v: obj array) = x.attribute "actions" v
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -144,17 +144,17 @@ type TooltipPosition =
 
 type BizTooltip() =
     inherit BizElement<BizCoordinate>(ofImport "default" "bizcharts/lib/components/Tooltip")
-    member x.showTitle (v: bool) = x.attribute "showTitle" v
+    member x.showTitle (?v: bool) = x.attribute "showTitle" (Option.defaultValue true v)
     member x.title (v: string) = x.attribute "title" v
-    member x.showMarkers (v: bool) = x.attribute "showMarkers" v
+    member x.showMarkers (?v: bool) = x.attribute "showMarkers" (Option.defaultValue true v)
     member x.marker (v: obj) = x.attribute "marker" v
-    member x.showContent (v: bool) = x.attribute "showContent" v
+    member x.showContent (?v: bool) = x.attribute "showContent" (Option.defaultValue true v)
     member x.position (v: TooltipPosition) = x.attribute "position" v
-    member x.shared (v: bool) = x.attribute "shared" v
-    member x.follow (v: bool) = x.attribute "follow" v
+    member x.shared (?v: bool) = x.attribute "shared" (Option.defaultValue true v)
+    member x.follow (?v: bool) = x.attribute "follow" (Option.defaultValue true v)
     member x.offset (v: float) = x.attribute "offset" v
-    member x.enterable (v: bool) = x.attribute "enterable" v
-    member x.showCrosshairs (v: bool) = x.attribute "showCrosshairs" v
+    member x.enterable (?v: bool) = x.attribute "enterable" (Option.defaultValue true v)
+    member x.showCrosshairs (?v: bool) = x.attribute "showCrosshairs" (Option.defaultValue true v)
     member x.crosshairs (v: obj) = x.attribute "crosshairs" v
 
 
@@ -203,10 +203,10 @@ type BizFacet() =
     member x.fields (v: string array) = x.attribute "fields" v
     member x.eachView (v: obj -> unit) = x.attribute "eachView" v // TODO better
     member x.padding (v: int array) = x.attribute "padding" v
-    member x.showTitle (v: bool) = x.attribute "showTitle" v // TODO style
+    member x.showTitle (?v: bool) = x.attribute "showTitle" (Option.defaultValue true v) // TODO style
     member x.columnTitle (v: obj) = x.attribute "columnTitle" v // TODO style
     member x.rowTitle (v: obj) = x.attribute "rowTitle" v
     member x.cols (v: int) = x.attribute "cols" v
     member x.title (v: obj) = x.attribute "title" v // TODO style
-    member x.transpose (v: bool) = x.attribute "transpose" v
+    member x.transpose (?v: bool) = x.attribute "transpose" (Option.defaultValue true v)
     member x.line (v: obj) = x.attribute "line" v

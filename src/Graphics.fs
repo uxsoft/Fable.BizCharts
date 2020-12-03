@@ -10,9 +10,9 @@ type BizGraphic<'T when 'T :> BizElement<'T>>(partialImport) =
     member x.label (v: string) = x.attribute "label" v
     member x.adjust (v: string) = x.attribute "adjust" v
     member x.size (v: obj) = x.attribute "size" v
-    member x.tooltip (v: bool) = x.attribute "tooltip" v
+    member x.tooltip (?v: bool) = x.attribute "tooltip" (Option.defaultValue true v)
     member x.style (v: obj) = x.attribute "style" v
-    member x.animate (v: bool) = x.attribute "animate" v
+    member x.animate (?v: bool) = x.attribute "animate" (Option.defaultValue true v)
 
 [<StringEnum; RequireQualifiedAccess>]
 type LineShape =
@@ -107,5 +107,3 @@ type EdgeShape =
 type BizEdge() =
     inherit BizGraphic<BizEdge>(ofImport "default" "bizcharts/lib/geometry/Edge")
     member x.shape (v: EdgeShape) = x.attribute "shape" v
-    
-// TODO label
