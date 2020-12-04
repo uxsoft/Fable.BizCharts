@@ -143,7 +143,7 @@ type TooltipPosition =
     | Bottom
 
 type BizTooltip() =
-    inherit BizElement<BizCoordinate>(ofImport "default" "bizcharts/lib/components/Tooltip")
+    inherit BizElement<BizTooltip>(ofImport "default" "bizcharts/lib/components/Tooltip")
     member x.showTitle (?v: bool) = x.attribute "showTitle" (Option.defaultValue true v)
     member x.title (v: string) = x.attribute "title" v
     member x.showMarkers (?v: bool) = x.attribute "showMarkers" (Option.defaultValue true v)
