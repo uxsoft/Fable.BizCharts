@@ -107,3 +107,9 @@ type EdgeShape =
 type BizEdge() =
     inherit BizGraphic<BizEdge>(ofImport "default" "bizcharts/lib/geometry/Edge")
     member x.shape (v: EdgeShape) = x.attribute "shape" v
+        
+type BizLineAdvance() =
+    inherit BizGraphic<BizLineAdvance>(ofImport "default" "bizcharts/lib/geometry/LineAdvance")
+    member x.shape (v: LineShape) = x.attribute "shape" v
+    member x.point (?v: bool) = x.attribute "point" (Option.defaultValue v)
+    member x.area (?v: bool) = x.attribute "area" (Option.defaultValue v)
