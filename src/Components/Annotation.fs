@@ -8,7 +8,7 @@ open Fable.BizCharts
 type BizAnnotationBase<'T when 'T :> BizElement<'T>>(partialImport) =
     inherit BizElement<'T>(partialImport)
     member x.top (?v: bool) = x.attribute "top" (Option.defaultValue true v)
-    member x.style (v: 'T) = x.attribute "style" v
+    member x.style (v: 'A) = x.attribute "style" v
     member x.animate (?v: bool) = x.attribute "animate" (Option.defaultValue true v)
     member x.offsetX (v: int) = x.attribute "offsetX" v
     member x.offsetY (v: int) = x.attribute "offsetY" v
