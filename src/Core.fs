@@ -62,6 +62,7 @@ type BizAxis() =
     member x.line (v: 'T) = x.attribute "line" v
     member x.tickLine (v: 'T) = x.attribute "tickLine" v
     member x.label (v: 'T) = x.attribute "label" v
+    member x.grid (v: 'T) = x.attribute "grid" v
     member x.subTickLine (v: 'T) = x.attribute "subTickLine" v
     member x.animate (?v: bool) = x.attribute "animate" (Option.defaultValue true v)
     member x.verticalFactor (v: int) = x.attribute "verticalFactor" v
