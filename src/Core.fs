@@ -42,22 +42,24 @@ type BizChart<'TData>(data: 'TData array) as this =
     member x.defaultInteractions (v: InteractionType array) = x.attribute "defaultInteractions" v
     member x.interactions (v: InteractionType array) = x.attribute "interactions" v
     member x.animate (?v: bool) = x.attribute "animate" (Option.defaultValue true v)
-    member x.filter (v: 'T array) = x.attribute "filter" v
-    member x.scale (v: 'T) = x.attribute "scale" v
+    member x.filter (v: 'A) = x.attribute "filter" v
+    member x.scale (v: 'A) = x.attribute "scale" v
 
 type BizView() =
     inherit BizElement<BizView>(ofImport "default" "bizcharts/lib/components/View")
-    member x.region (v: 'T) = x.attribute "region" v
+    member x.region (v: {| start: {| x: int; y: int |}; ``end``: {| x: int; y: int |} |}) = x.attribute "region" v
     member x.data (v: 'T array) = x.attribute "data" v
     member x.scale (v: 'T) = x.attribute "scale" v
     member x.padding (v: int array) = x.attribute "padding" v
     member x.animate (?v: bool) = x.attribute "animate" (Option.defaultValue true v)
 
+[<StringEnum; RequireQualifiedAccess>]
+type AxisPosition = Top | Bottom | Left | Right
 type BizAxis() =
     inherit BizElement<BizAxis>(ofImport "default" "bizcharts/lib/components/Axis")
     member x.name (v: string) = x.attribute "name" v
     member x.visible (?v: bool) = x.attribute "visible" (Option.defaultValue true v)
-    member x.position (v: string) = x.attribute "position" v
+    member x.position (v: AxisPosition) = x.attribute "position" v
     member x.title (?v: bool) = x.attribute "title" (Option.defaultValue true v)
     member x.line (v: 'T) = x.attribute "line" v
     member x.tickLine (v: 'T) = x.attribute "tickLine" v
@@ -161,16 +163,6 @@ type BizTooltip() =
     member x.crosshairs (v: 'T) = x.attribute "crosshairs" v
 
 
-// TrendCfg
-//{
-//  data: number[], // 背景图显示的数据
-//  smooth?: boolean, // 是否平滑
-//  isArea?: boolean, // 是否显示区域
-//  backgroundStyle?: 'Tect, // 背景图样式
-//  lineStyle?: 'Tect, // 线条样式
-//  areaStyle?: 'Tect, // 数据区域样式
-//}
-
 type BizSlider() =
     inherit BizElement<BizSlider>(ofImport "default" "bizcharts/lib/components/Slider")
     member x.height (v: int) = x.attribute "height" v
@@ -190,15 +182,10 @@ type BizInteraction() =
     member x.interactionType (v: InteractionType) = x.attribute "type" v
     member x.config (v: 'T) = x.attribute "config" v
 
+
 [<StringEnum; RequireQualifiedAccess>]
 type FacetType =
     | Rect | List | Circle | Tree | Mirror | Matrix
-
-//{
-//    offsetX?: number,    /** x 方向偏移。 */
-//    offsetY?: number,    /** y 方向偏移。 */
-//    style?: 'Tect    /** 文本样式。 */
-//  }
 
 type BizFacet() =
     inherit BizElement<BizFacet>(ofImport "default" "bizcharts/lib/components/Facet")

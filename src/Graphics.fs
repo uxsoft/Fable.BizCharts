@@ -1,7 +1,9 @@
 namespace Fable.BizCharts
 
 open Fable.Core
+open Fable.Core.JsInterop
 open Fable.React
+open Fable.React.Props
 
 type BizGraphic<'T when 'T :> BizElement<'T>>(partialImport) =
     inherit BizElement<'T>(partialImport)
@@ -9,9 +11,9 @@ type BizGraphic<'T when 'T :> BizElement<'T>>(partialImport) =
     member x.color (v: string) = x.attribute "color" v
     member x.label (v: string) = x.attribute "label" v
     member x.adjust (v: string) = x.attribute "adjust" v
-    member x.size (v: obj) = x.attribute "size" v
+    member x.size (v: 'A) = x.attribute "size" v
     member x.tooltip (?v: bool) = x.attribute "tooltip" (Option.defaultValue true v)
-    member x.style (v: obj) = x.attribute "style" v
+    member x.style (css: CSSProp list) = x.attribute "style" (keyValueList CaseRules.LowerFirst css)
     member x.animate (?v: bool) = x.attribute "animate" (Option.defaultValue true v)
 
 [<StringEnum; RequireQualifiedAccess>]

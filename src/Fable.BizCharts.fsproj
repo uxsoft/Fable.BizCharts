@@ -11,9 +11,10 @@
   <ItemGroup>
     <Compile Include="Common.fs" />
     <Compile Include="Core.fs" />
-    <Compile Include="Components/Annotation.fs"/>
+    <Compile Include="Components/Annotation.fs" />
     <Compile Include="Graphics.fs" />
     <Compile Include="G2.fs" />
+    <Compile Include="G2Functions.fs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".\icon.png">

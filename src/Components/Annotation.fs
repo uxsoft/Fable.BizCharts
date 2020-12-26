@@ -2,13 +2,15 @@
 module Fable.BizCharts.Components.Annotation
 
 open Fable.Core
+open Fable.Core.JsInterop
 open Fable.React
+open Fable.React.Props
 open Fable.BizCharts
 
 type BizAnnotationBase<'T when 'T :> BizElement<'T>>(partialImport) =
     inherit BizElement<'T>(partialImport)
     member x.top (?v: bool) = x.attribute "top" (Option.defaultValue true v)
-    member x.style (v: 'A) = x.attribute "style" v
+    member x.style (css: CSSProp list) = x.attribute "style" (keyValueList CaseRules.LowerFirst css)
     member x.animate (?v: bool) = x.attribute "animate" (Option.defaultValue true v)
     member x.offsetX (v: int) = x.attribute "offsetX" v
     member x.offsetY (v: int) = x.attribute "offsetY" v
@@ -20,7 +22,7 @@ type BizAnnotationTextConfig() =
     member x.position (v: string) = x.attribute "position" v
     member x.autoRotate (v: bool) = x.attribute "autoRotate" v
     member x.content (v: string) = x.attribute "content" v
-    member x.style (v: 'T) = x.attribute "style" v
+    member x.style (css: CSSProp list) = x.attribute "style" (keyValueList CaseRules.LowerFirst css)
     member x.offsetX (v: int) = x.attribute "offsetX" v
     member x.offsetY (v: int) = x.attribute "offsetY" v
 
@@ -41,7 +43,7 @@ type BizAnnotationImage() =
 type BizAnnotationRegionFilter() =
     inherit BizAnnotationBase<BizAnnotationRegionFilter>(ofImport "RegionFilter" "bizcharts/lib/components/Annotation")
     member x.color (v: string) = x.attribute "color" v
-    member x.area (v: string array) = x.attribute "color" v
+    member x.area (v: string array) = x.attribute "area" v
     
 [<StringEnum; RequireQualifiedAccess>] type DataMarkerDirection = Downward | Upward
 

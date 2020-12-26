@@ -24,5 +24,5 @@ type BizElement<'T when 'T :> BizElement<'T>> (partialImport: obj -> ReactElemen
         partialImport x.JSON []
 
     // Common Attributes
-    member x.set (v: string * obj) = match v with (name, value) -> x.attribute name value
+    member x.set (v: string * 'T) = match v with (name, value) -> x.attribute name value
     member x.key (v: string) = x.attribute "key" v
