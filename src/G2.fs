@@ -1,19 +1,19 @@
-namespace Fable.BizCharts.G2
+namespace Fable.BizCharts
 
 open Browser.Types
 open Fable.React
 open Fable.BizCharts
 
 type BizCanvas() =
-    inherit BizElement<BizCanvas>(ofImport "default" "bizcharts/lib/g-components/Canvas")
+    inherit BizElement<BizCanvas>(ofImport "GComponents.Canvas" "bizcharts")
     member x.renderer (v: string) = x.attribute "renderer" v
     member x.width (v: int) = x.attribute "width" v
     member x.height (v: int) = x.attribute "height" v
     member x.container (v: HTMLElement) = x.attribute "container" v
     member x.cursor (v: string) = x.attribute "cursor" v
     
-type BizGroup() =
-    inherit BizElement<BizGroup>(ofImport "default" "bizcharts/lib/g-components/Group")
+type BizGGroup() =
+    inherit BizElement<BizGGroup>(ofImport "GComponents.Group" "bizcharts")
     member x.translate (v: float array) = x.attribute "translate" v
     
 type CircleAttrs =
@@ -23,8 +23,8 @@ type CircleAttrs =
         r: float option        
     }
     
-type BizCircle() =
-    inherit BizElement<BizCircle>(ofImport "default" "bizcharts/lib/g-components/Circle")
+type BizGCircle() =
+    inherit BizElement<BizGCircle>(ofImport "GComponents.Circle" "bizcharts")
     member x.attrs (v: CircleAttrs) = x.attribute "attrs" v
 
 type EllipseAttrs =
@@ -35,8 +35,8 @@ type EllipseAttrs =
         ry: float option
     }
   
-type BizEllipse() =
-    inherit BizElement<BizEllipse>(ofImport "default" "bizcharts/lib/g-components/Ellipse")
+type BizGEllipse() =
+    inherit BizElement<BizGEllipse>(ofImport "GComponents.Ellipse" "bizcharts")
     member x.attrs (v: EllipseAttrs) = x.attribute "attrs" v
     
 type ImageAttrs =
@@ -47,8 +47,8 @@ type ImageAttrs =
         height: float option
     }
   
-type BizImage() =
-    inherit BizElement<BizImage>(ofImport "default" "bizcharts/lib/g-components/Image")
+type BizGImage() =
+    inherit BizElement<BizGImage>(ofImport "GComponents.Image" "bizcharts")
     member x.attrs (v: ImageAttrs) = x.attribute "attrs" v
     
 type LineAttrs =
@@ -59,8 +59,8 @@ type LineAttrs =
         y2: float option
     }
   
-type BizLine() =
-    inherit BizElement<BizLine>(ofImport "default" "bizcharts/lib/g-components/Line")
+type BizGLine() =
+    inherit BizElement<BizGLine>(ofImport "GComponents.Line" "bizcharts")
     member x.attrs (v: LineAttrs) = x.attribute "attrs" v
     
 type MarkerAttrs =
@@ -71,8 +71,8 @@ type MarkerAttrs =
         symbol: float option
     }
   
-type BizMarker() =
-    inherit BizElement<BizMarker>(ofImport "default" "bizcharts/lib/g-components/Marker")
+type BizGMarker() =
+    inherit BizElement<BizGMarker>(ofImport "GComponents.Marker" "bizcharts")
     member x.attrs (v: MarkerAttrs) = x.attribute "attrs" v
     
 type PathAttrs =
@@ -80,8 +80,8 @@ type PathAttrs =
         path: string
     }
   
-type BizPath() =
-    inherit BizElement<BizPath>(ofImport "default" "bizcharts/lib/g-components/Path")
+type BizGPath() =
+    inherit BizElement<BizGPath>(ofImport "GComponents.Path" "bizcharts")
     member x.attrs (v: PathAttrs) = x.attribute "attrs" v
     
 type PolygonAttrs =
@@ -89,8 +89,8 @@ type PolygonAttrs =
         points: float array array
     }
   
-type BizPolygon() =
-    inherit BizElement<BizPolygon>(ofImport "default" "bizcharts/lib/g-components/Polygon")
+type BizGPolygon() =
+    inherit BizElement<BizGPolygon>(ofImport "GComponents.Polygon" "bizcharts")
     member x.attrs (v: PolygonAttrs) = x.attribute "attrs" v
     
 type PolylineAttrs =
@@ -98,8 +98,8 @@ type PolylineAttrs =
         points: float array array
     }
   
-type BizPolyline() =
-    inherit BizElement<BizPolyline>(ofImport "default" "bizcharts/lib/g-components/Polyline")
+type BizGPolyline() =
+    inherit BizElement<BizGPolyline>(ofImport "GComponents.Polyline" "bizcharts")
     member x.attrs (v: PolylineAttrs) = x.attribute "attrs" v
     
 type RectAttrs =
@@ -111,8 +111,8 @@ type RectAttrs =
         radius: float option
     }
   
-type BizRect() =
-    inherit BizElement<BizRect>(ofImport "default" "bizcharts/lib/g-components/Rect")
+type BizGRect() =
+    inherit BizElement<BizGRect>(ofImport "GComponents.Rect" "bizcharts")
     member x.attrs (v: RectAttrs) = x.attribute "attrs" v
     
 type TextAttrs =
@@ -122,6 +122,6 @@ type TextAttrs =
         text: string
     }
   
-type BizText() =
-    inherit BizElement<BizText>(ofImport "default" "bizcharts/lib/g-components/Text")
+type BizGText() =
+    inherit BizElement<BizGText>(ofImport "GComponents.Text" "bizcharts")
     member x.attrs (v: TextAttrs) = x.attribute "attrs" v

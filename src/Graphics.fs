@@ -21,7 +21,7 @@ type LineShape =
     | Line | Smooth | Dot | Dash | Hv | Vh | Hvh | Vhv
 
 type BizLine() =
-    inherit BizGraphic<BizLine>(ofImport "default" "bizcharts/lib/geometry/Line")
+    inherit BizGraphic<BizLine>(ofImport "Line" "bizcharts")
     member x.shape (v: LineShape) = x.attribute "shape" v
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -29,7 +29,7 @@ type IntervalShape =
     | Rect | HollowRect | Line | Tick | Stroke | Funnel | Pyramid
 
 type BizInterval() =
-    inherit BizGraphic<BizInterval>(ofImport "default" "bizcharts/lib/geometry/Interval")
+    inherit BizGraphic<BizInterval>(ofImport "Interval" "bizcharts")
     member x.shape (v: IntervalShape) = x.attribute "shape" v
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -55,7 +55,7 @@ type PointShape =
     | [<CompiledName("hollow-triangle-down")>] HollowTriangleDown
 
 type BizPoint() =
-    inherit BizGraphic<BizPoint>(ofImport "default" "bizcharts/lib/geometry/Point")
+    inherit BizGraphic<BizPoint>(ofImport "Point" "bizcharts")
     member x.shape (v: PointShape) = x.attribute "shape" v
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -69,11 +69,11 @@ type AreaShape =
     | DotSmoothLine'
 
 type BizArea() =
-    inherit BizGraphic<BizArea>(ofImport "default" "bizcharts/lib/geometry/Area")
+    inherit BizGraphic<BizArea>(ofImport "Area" "bizcharts")
     member x.shape (v: AreaShape) = x.attribute "shape" v
     
 type BizPolygon() =
-    inherit BizGraphic<BizPolygon>(ofImport "default" "bizcharts/lib/geometry/Polygon")
+    inherit BizGraphic<BizPolygon>(ofImport "Polygon" "bizcharts")
 
 [<StringEnum; RequireQualifiedAccess>]
 type SchemaShape =
@@ -81,7 +81,7 @@ type SchemaShape =
     | Candle
     
 type BizSchema() =
-    inherit BizGraphic<BizSchema>(ofImport "default" "bizcharts/lib/geometry/Schema")
+    inherit BizGraphic<BizSchema>(ofImport "Schema" "bizcharts")
     member x.shape (v: SchemaShape) = x.attribute "shape" v
     
 [<StringEnum; RequireQualifiedAccess>]
@@ -93,11 +93,11 @@ type PathShape =
     | Hv | Vh | Hvh | Vhv
     
 type BizPath() =
-    inherit BizGraphic<BizPath>(ofImport "default" "bizcharts/lib/geometry/Path")
+    inherit BizGraphic<BizPath>(ofImport "Path" "bizcharts")
     member x.shape (v: PathShape) = x.attribute "shape" v
     
 type BizHeatmap() =
-    inherit BizGraphic<BizHeatmap>(ofImport "default" "bizcharts/lib/geometry/Heatmap")
+    inherit BizGraphic<BizHeatmap>(ofImport "Heatmap" "bizcharts")
 
 [<StringEnum; RequireQualifiedAccess>]
 type EdgeShape =
@@ -107,11 +107,11 @@ type EdgeShape =
     | Arc
     
 type BizEdge() =
-    inherit BizGraphic<BizEdge>(ofImport "default" "bizcharts/lib/geometry/Edge")
+    inherit BizGraphic<BizEdge>(ofImport "Edge" "bizcharts")
     member x.shape (v: EdgeShape) = x.attribute "shape" v
         
 type BizLineAdvance() =
-    inherit BizGraphic<BizLineAdvance>(ofImport "default" "bizcharts/lib/geometry/LineAdvance")
+    inherit BizGraphic<BizLineAdvance>(ofImport "LineAdvance" "bizcharts")
     member x.shape (v: LineShape) = x.attribute "shape" v
     member x.point (?v: bool) = x.attribute "point" (Option.defaultValue v)
     member x.area (?v: bool) = x.attribute "area" (Option.defaultValue v)

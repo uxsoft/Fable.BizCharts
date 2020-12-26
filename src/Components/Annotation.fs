@@ -1,5 +1,4 @@
-[<AutoOpen>]
-module Fable.BizCharts.Components.Annotation
+namespace Fable.BizCharts
 
 open Fable.Core
 open Fable.Core.JsInterop
@@ -27,28 +26,28 @@ type BizAnnotationTextConfig() =
     member x.offsetY (v: int) = x.attribute "offsetY" v
 
 type BizAnnotationLine() =
-    inherit BizAnnotationBase<BizAnnotationLine>(ofImport "Line" "bizcharts/lib/components/Annotation")
+    inherit BizAnnotationBase<BizAnnotationLine>(ofImport "Annotation.Line" "bizcharts")
     member x.text (v: BizAnnotationTextConfig) = x.attribute "text" v
     
 type BizAnnotationText() =
-    inherit BizAnnotationBase<BizAnnotationText>(ofImport "Text" "bizcharts/lib/components/Annotation")
+    inherit BizAnnotationBase<BizAnnotationText>(ofImport "Annotation.Text" "bizcharts")
     member this.position (x: 'A, y: 'B) = this.attribute "position" [| x :> obj; y :> obj |]
     member x.content (v: string) = x.attribute "content" v
     member x.rotate (v: float) = x.attribute "rotate" v
     
 type BizAnnotationImage() =
-    inherit BizAnnotationBase<BizAnnotationImage>(ofImport "Image" "bizcharts/lib/components/Annotation")
+    inherit BizAnnotationBase<BizAnnotationImage>(ofImport "Annotation.Image" "bizcharts")
     member x.src (v: string) = x.attribute "src" v
     
 type BizAnnotationRegionFilter() =
-    inherit BizAnnotationBase<BizAnnotationRegionFilter>(ofImport "RegionFilter" "bizcharts/lib/components/Annotation")
+    inherit BizAnnotationBase<BizAnnotationRegionFilter>(ofImport "Annotation.RegionFilter" "bizcharts")
     member x.color (v: string) = x.attribute "color" v
     member x.area (v: string array) = x.attribute "area" v
     
 [<StringEnum; RequireQualifiedAccess>] type DataMarkerDirection = Downward | Upward
 
 type BizAnnotationDataMarker() =
-    inherit BizAnnotationBase<BizAnnotationDataMarker>(ofImport "DataMarker" "bizcharts/lib/components/Annotation")
+    inherit BizAnnotationBase<BizAnnotationDataMarker>(ofImport "Annotation.DataMarker" "bizcharts")
     member this.position (x: 'A, y: 'B) = this.attribute "position" [| x :> obj; y :> obj |]
     member x.point (v: {| style: 'T |}) = x.attribute "point" v 
     member x.line (v: 'T) = x.attribute "line" v
@@ -58,13 +57,13 @@ type BizAnnotationDataMarker() =
     member x.direction (v: DataMarkerDirection) = x.attribute "direction" v 
     
 type BizAnnotationDataRegion() =
-    inherit BizAnnotationBase<BizAnnotationDataRegion>(ofImport "DataRegion" "bizcharts/lib/components/Annotation")
+    inherit BizAnnotationBase<BizAnnotationDataRegion>(ofImport "Annotation.DataRegion" "bizcharts")
     member x.region (v: {| style: 'T |}) = x.attribute "region" v 
     member x.lineLength (v: int) = x.attribute "lineLength" v
     member x.text (v: BizAnnotationTextConfig) = x.attribute "text" v
     
 type BizAnnotationRegion() =
-    inherit BizAnnotationBase<BizAnnotationRegion>(ofImport "Region" "bizcharts/lib/components/Annotation")
+    inherit BizAnnotationBase<BizAnnotationRegion>(ofImport "Annotation.Region" "bizcharts")
     
 type BizAnnotationArc() =
-    inherit BizAnnotationBase<BizAnnotationArc>(ofImport "Arc" "bizcharts/lib/components/Annotation")
+    inherit BizAnnotationBase<BizAnnotationArc>(ofImport "Annotation.Arc" "bizcharts")
